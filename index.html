@@ -144,7 +144,8 @@ button{font-family:inherit;cursor:pointer;}
 /* Hero */
 .hero{position:relative;padding:56px 0 90px;overflow:hidden;}
 .hero-bg{
-  position:absolute;inset:0;z-index:0;
+  position:absolute;top:-70px;left:0;right:0;bottom:-70px;z-index:0;
+  will-change:transform;
   background:
     radial-gradient(60% 55% at 85% 8%, rgba(227,199,147,.55) 0%, rgba(227,199,147,0) 70%),
     radial-gradient(70% 60% at 8% 95%, rgba(192,133,120,.30) 0%, rgba(192,133,120,0) 70%),
@@ -387,7 +388,7 @@ button{font-family:inherit;cursor:pointer;}
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true" data-parallax="55"></div>
   <div class="container">
     <div class="hero-copy reveal">
       <p class="eyebrow">Doçaria de eventos, desde o primeiro brigadeiro</p>
@@ -402,6 +403,7 @@ button{font-family:inherit;cursor:pointer;}
       </div>
     </div>
 
+    <div class="hero-visual-wrap" data-parallax="-32">
     <div class="hero-visual reveal-scale">
       <svg class="floaty" style="top:6%;left:2%;width:34px" viewBox="0 0 32 32" aria-hidden="true"><path fill="var(--rose-gold)" d="M16 28 C4 20 5 10 12 9 c3-.4 4 3 4 5 c0-2 1-5.4 4-5 c7 1 8 11-4 19Z"/></svg>
       <svg class="floaty spark" style="top:2%;right:8%;width:22px;animation-delay:.6s" viewBox="0 0 24 24" aria-hidden="true"><path fill="var(--gold)" d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z"/></svg>
@@ -466,19 +468,22 @@ button{font-family:inherit;cursor:pointer;}
         <path d="M220 82 c-2.6-4.6-9.4-2.6-9.4 2.4 0 5.4 9.4 12 9.4 12s9.4-6.6 9.4-12c0-5-6.8-7-9.4-2.4Z" fill="var(--rose-gold-deep)"/>
       </svg>
     </div>
+    </div>
   </div>
 </section>
 
-<div class="ribbon" aria-hidden="true">
+<div class="ribbon" aria-hidden="true" data-parallax="16">
   <svg viewBox="0 0 180 26"><path d="M0 13 Q45 -4 90 13 T180 13" fill="none" stroke="var(--gold)" stroke-width="1.4"/><circle cx="90" cy="13" r="4" fill="var(--rose-gold)"/></svg>
 </div>
 
 <!-- SOBRE -->
 <section class="section" id="sobre">
   <div class="container about-grid">
+    <div data-parallax="26">
     <div class="photo-frame reveal-scale">
       <svg viewBox="0 0 200 200" aria-hidden="true"><path fill="#fff" opacity=".5" d="M100 170 C40 140 45 90 75 82 C90 78 100 95 100 105 C100 95 110 78 125 82 C155 90 160 140 100 170Z"/></svg>
       <p class="cap">Foto real do carrinho — substituir pela imagem do evento</p>
+    </div>
     </div>
     <div class="about-copy reveal">
       <p class="eyebrow">Nossa história</p>
@@ -756,6 +761,30 @@ button{font-family:inherit;cursor:pointer;}
 
 <script>
 (function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var parallaxEls = reduceMotion ? [] : Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  if(parallaxEls.length){
+    var ticking = false;
+    var updateParallax = function(){
+      var vh = window.innerHeight;
+      parallaxEls.forEach(function(el){
+        var range = parseFloat(el.getAttribute('data-parallax')) || 0;
+        var rect = el.getBoundingClientRect();
+        var progress = (vh - rect.top) / (vh + rect.height);
+        progress = Math.min(1, Math.max(0, progress));
+        var y = (progress - 0.5) * range;
+        el.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0)';
+      });
+      ticking = false;
+    };
+    window.addEventListener('scroll', function(){
+      if(!ticking){ requestAnimationFrame(updateParallax); ticking = true; }
+    }, {passive:true});
+    window.addEventListener('resize', updateParallax);
+    updateParallax();
+  }
+
   var revealEls = document.querySelectorAll('.reveal, .reveal-scale');
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
