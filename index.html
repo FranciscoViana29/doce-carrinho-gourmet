@@ -224,9 +224,12 @@ button{font-family:inherit;cursor:pointer;}
 @media(min-width:960px){.hero-actions{flex-direction:row;flex-wrap:wrap;max-width:none;margin:0;}}
 .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:360px;}
 .hero-visual svg{width:100%;max-width:420px;filter:drop-shadow(0 30px 40px rgba(160,104,92,.25));}
-.hero-visual .cart-illustration{
-  width:100%;max-width:400px;height:auto;display:block;
-  filter:drop-shadow(0 22px 26px rgba(160,104,92,.28));
+.hero-visual .cart-illustration-wrap{position:relative;width:100%;max-width:400px;}
+.hero-visual .cart-illustration{width:100%;height:auto;display:block;position:relative;z-index:1;}
+.hero-visual .cart-shadow{
+  position:absolute;left:8%;right:8%;bottom:6%;height:22px;
+  background:radial-gradient(ellipse at center, rgba(150,104,74,.35) 0%, rgba(150,104,74,.16) 45%, transparent 75%);
+  filter:blur(4px);z-index:0;
 }
 .floaty{position:absolute;pointer-events:none;animation:floatY 6s ease-in-out infinite;}
 @keyframes floatY{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-16px) rotate(6deg);}}
@@ -553,7 +556,10 @@ button{font-family:inherit;cursor:pointer;}
       <svg class="floaty" style="bottom:10%;left:0;width:26px;animation-delay:1.2s" viewBox="0 0 32 32" aria-hidden="true"><path fill="var(--gold-light)" d="M16 28 C4 20 5 10 12 9 c3-.4 4 3 4 5 c0-2 1-5.4 4-5 c7 1 8 11-4 19Z"/></svg>
       <svg class="floaty spark" style="bottom:6%;right:2%;width:18px;animation-delay:1.8s" viewBox="0 0 24 24" aria-hidden="true"><path fill="var(--rose-gold-deep)" d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z"/></svg>
 
-      <img class="cart-illustration" src="images/hero-carrinho.webp" alt="Ilustração do carrinho gourmet Docê com doces finos, flores e balão de vidro">
+      <div class="cart-illustration-wrap">
+        <div class="cart-shadow" aria-hidden="true"></div>
+        <img class="cart-illustration" src="images/hero-carrinho.webp" alt="Ilustração do carrinho gourmet Docê com doces finos, flores e balão de vidro">
+      </div>
     </div>
     </div>
   </div>
