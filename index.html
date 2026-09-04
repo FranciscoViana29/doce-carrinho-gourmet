@@ -270,6 +270,38 @@ button{font-family:inherit;cursor:pointer;}
 .service-card h3{font-size:1.35rem;margin-bottom:8px;}
 .service-card p{font-size:.94rem;margin-bottom:0;}
 
+/* Cardápio */
+.menu-rules{display:grid;gap:18px;grid-template-columns:1fr;max-width:820px;margin:0 auto 54px;}
+@media(min-width:640px){.menu-rules{grid-template-columns:repeat(2,1fr);}}
+.menu-rule{background:var(--surface);border-radius:var(--radius-md);padding:22px 26px;box-shadow:0 12px 28px -20px rgba(64,48,42,.3);display:flex;gap:16px;align-items:flex-start;}
+.menu-rule .icon-wrap{width:48px;height:48px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--champagne),var(--nude));}
+.menu-rule .icon-wrap svg{width:22px;height:22px;stroke:var(--rose-gold-deep);}
+.menu-rule strong{display:block;font-size:.98rem;margin-bottom:2px;}
+.menu-rule span{font-size:.88rem;color:var(--ink-soft);}
+
+.menu-sub{max-width:640px;margin:0 auto 28px;text-align:center;}
+.menu-sub h3{font-size:clamp(1.5rem,3.6vw,2rem);margin-bottom:8px;}
+.menu-sub p{font-size:.98rem;}
+
+.chip-list{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:800px;margin:0 auto;}
+.chip{
+  display:inline-flex;align-items:center;padding:10px 18px;border-radius:100px;
+  background:var(--surface);border:1px solid var(--surface-line);font-size:.86rem;font-weight:500;color:var(--ink);
+  box-shadow:0 8px 18px -16px rgba(64,48,42,.3);
+}
+.menu-note{text-align:center;font-size:.82rem;color:var(--ink-faint);margin:16px 0 0;}
+
+.feature-grid{display:grid;gap:22px;grid-template-columns:1fr;margin-top:54px;}
+@media(min-width:720px){.feature-grid{grid-template-columns:repeat(2,1fr);}}
+.feature-card{background:var(--surface);border-radius:var(--radius-md);padding:30px 28px;box-shadow:0 14px 32px -22px rgba(64,48,42,.28);}
+.feature-card .icon-wrap{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--champagne),var(--nude));margin-bottom:16px;}
+.feature-card .icon-wrap svg{width:26px;height:26px;stroke:var(--rose-gold-deep);}
+.feature-card h3{font-size:1.2rem;margin-bottom:6px;}
+.feature-card p{font-size:.92rem;margin-bottom:0;}
+.feature-card em{color:var(--rose-gold-deep);font-style:normal;font-weight:500;}
+
+.menu-cta{text-align:center;margin-top:52px;}
+
 /* Gallery */
 .masonry{columns:1;column-gap:18px;}
 @media(min-width:640px){.masonry{columns:2;}}
@@ -498,6 +530,7 @@ button{font-family:inherit;cursor:pointer;}
     <nav class="nav-desktop" aria-label="Navegação principal">
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
+      <a href="#cardapio">Cardápio</a>
       <a href="#galeria">Galeria</a>
       <a href="#depoimentos">Depoimentos</a>
       <a href="#faq">FAQ</a>
@@ -512,6 +545,7 @@ button{font-family:inherit;cursor:pointer;}
 <nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile">
   <a href="#sobre">Sobre</a>
   <a href="#servicos">Serviços</a>
+  <a href="#cardapio">Cardápio</a>
   <a href="#galeria">Galeria</a>
   <a href="#depoimentos">Depoimentos</a>
   <a href="#faq">FAQ</a>
@@ -675,6 +709,94 @@ button{font-family:inherit;cursor:pointer;}
         <p>Diversão e encantamento em cada detalhe doce, pensados especialmente para a festa dos pequenos.</p>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- CARDÁPIO -->
+<section class="section" id="cardapio">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Doçura que encanta, memórias que ficam</p>
+      <h2>Brigadeiros Gourmet de Colher</h2>
+      <p>Servidos em copinhos elegantes, prontos para encantar cada convidado do seu evento.</p>
+    </div>
+
+    <div class="menu-rules reveal">
+      <div class="menu-rule">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
+        <div><strong>Até 80 pessoas</strong><span>Escolha 2 sabores de brigadeiro.</span></div>
+      </div>
+      <div class="menu-rule">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3.4"/><circle cx="16" cy="8" r="3.4"/><path d="M2 21c0-3.8 2.8-6 6-6s6 2.2 6 6M12 21c0-3.4 2.6-5.4 6-5.4s6 2 6 5.4"/></svg></div>
+        <div><strong>Acima de 80 pessoas</strong><span>Escolha até 3 sabores de brigadeiro.</span></div>
+      </div>
+    </div>
+
+    <div class="card-grid" style="margin-bottom:58px">
+      <article class="service-card reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11Z"/></svg></div>
+        <h3>Tradicional</h3>
+        <p>O clássico que nunca sai de moda.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11Z"/></svg></div>
+        <h3>Belga*</h3>
+        <p>Feito com verdadeiro chocolate belga.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M8 12a4 4 0 0 1 8 0"/></svg></div>
+        <h3>Paçoca</h3>
+        <p>O sabor marcante da paçoca.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11Z"/></svg></div>
+        <h3>Tradicional com Morango</h3>
+        <p>Com morangos frescos. Leve, frutado e delicioso!</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M8 12a4 4 0 0 1 8 0"/></svg></div>
+        <h3>Leite Ninho</h3>
+        <p>Delicado e cremoso com todo o sabor do Leite Ninho.</p>
+      </article>
+    </div>
+
+    <div class="menu-sub reveal">
+      <p class="eyebrow" style="justify-content:center">Deixe do seu jeito</p>
+      <h3>Personalize seu brigadeiro</h3>
+      <p>Escolha até 3 opções de complemento:</p>
+    </div>
+    <div class="chip-list reveal">
+      <span class="chip">Ovomaltine</span>
+      <span class="chip">Granulado Tradicional</span>
+      <span class="chip">Granulado Belga*</span>
+      <span class="chip">Granulado Premium*</span>
+      <span class="chip">Nutella*</span>
+      <span class="chip">Paçoca</span>
+      <span class="chip">Confeti</span>
+      <span class="chip">Leite Ninho</span>
+      <span class="chip">Castanhas Trituradas</span>
+      <span class="chip">Amendoim Triturado</span>
+      <span class="chip">Coco Ralado</span>
+    </div>
+    <p class="menu-note">*Consulte valores dos complementos adicionais.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10h8l-3.2 10.5a1 1 0 0 1-1.9 0L8 10Z"/><path d="M7 8c0-2.5 2-4.5 5-4.5s5 2 5 4.5"/></svg></div>
+        <h3>Servimos também na casquinha!</h3>
+        <p>Crocância por fora e cremosidade por dentro — uma experiência irresistível. <em>Adicional, consulte valores.</em></p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9a4 4 0 1 1 8 0v2a4 4 0 1 1-8 0Z"/><path d="M4 8l2 2-2 2M20 8l-2 2 2 2"/></svg></div>
+        <h3>Estação de Guloseimas</h3>
+        <p>Balas Fini e marshmallow para uma explosão de sabores que alegram ainda mais o seu evento.</p>
+      </div>
+    </div>
+
+    <div class="menu-cta reveal" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+      <a href="https://wa.me/5537999685338?text=Ol%C3%A1!%20Vi%20o%20card%C3%A1pio%20e%20quero%20montar%20o%20meu%20evento." class="btn btn--primary" target="_blank" rel="noopener">Montar meu cardápio</a>
+      <a href="images/cardapio-brigadeiros.jpg" class="btn btn--ghost" target="_blank" rel="noopener">Ver cardápio completo (imagem)</a>
     </div>
   </div>
 </section>
