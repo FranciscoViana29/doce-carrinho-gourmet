@@ -397,13 +397,6 @@ button{font-family:inherit;cursor:pointer;}
 .testi-person strong{display:block;font-size:.92rem;}
 .testi-person span{font-size:.78rem;color:var(--ink-faint);}
 
-/* Stats */
-.stats-band{background:linear-gradient(135deg,var(--rose-gold-deep),var(--rose-gold));border-radius:var(--radius-lg);padding:52px 30px;color:#fff;}
-.stats-grid{display:grid;gap:32px;grid-template-columns:repeat(2,1fr);text-align:center;}
-@media(min-width:820px){.stats-grid{grid-template-columns:repeat(4,1fr);}}
-.stat-num{font-family:var(--font-display);font-size:clamp(2.1rem,4.5vw,2.8rem);font-weight:600;font-variant-numeric:tabular-nums;}
-.stat-label{font-size:.82rem;letter-spacing:.05em;opacity:.9;margin-top:6px;}
-
 /* FAQ */
 .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
 .faq-item{background:var(--surface);border-radius:var(--radius-sm);overflow:hidden;box-shadow:0 10px 24px -20px rgba(64,48,42,.25);}
@@ -918,20 +911,6 @@ button{font-family:inherit;cursor:pointer;}
   </div>
 </section>
 
-<!-- ESTATÍSTICAS -->
-<section class="section" id="estatisticas">
-  <div class="container">
-    <div class="stats-band reveal-scale">
-      <div class="stats-grid">
-        <div><div class="stat-num" data-count="150">0</div><div class="stat-label">eventos realizados</div></div>
-        <div><div class="stat-num" data-count="300">0</div><div class="stat-label">clientes satisfeitos</div></div>
-        <div><div class="stat-num" data-count="100" data-suffix="%">0</div><div class="stat-label">ingredientes selecionados</div></div>
-        <div><div class="stat-num" data-static="★★★★★">★★★★★</div><div class="stat-label">satisfação</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section class="section section--alt" id="faq">
   <div class="container">
@@ -1095,25 +1074,6 @@ button{font-family:inherit;cursor:pointer;}
     });
   },{threshold:.15});
   revealEls.forEach(function(el){ io.observe(el); });
-
-  var counters = document.querySelectorAll('[data-count]');
-  var cio = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      cio.unobserve(e.target);
-      var el = e.target, target = parseInt(el.getAttribute('data-count'),10);
-      var suffix = el.getAttribute('data-suffix') || '';
-      var start = null, dur = 1400;
-      function step(ts){
-        if(!start) start = ts;
-        var p = Math.min((ts-start)/dur,1);
-        el.textContent = Math.floor(p*target) + suffix;
-        if(p<1) requestAnimationFrame(step); else el.textContent = target + suffix;
-      }
-      requestAnimationFrame(step);
-    });
-  },{threshold:.5});
-  counters.forEach(function(el){ cio.observe(el); });
 
   document.querySelectorAll('.faq-q').forEach(function(btn){
     btn.addEventListener('click', function(){
