@@ -229,8 +229,8 @@ button{font-family:inherit;cursor:pointer;}
 .reveal-scale.is-visible{opacity:1;transform:scale(1);}
 @media(prefers-reduced-motion:reduce){
   .reveal,.reveal-scale,.floaty,.spark{transition:none;animation:none;opacity:1;transform:none;}
-  .flavor-photo img,.feature-photo img{transition:none;}
-  .flavor-card:hover .flavor-photo img,.feature-card .feature-photo img:hover,.feature-card .feature-photo:not(.split):hover img{transform:none;}
+  .menu-poster img,.menu-poster{transition:none;}
+  .menu-poster:hover{transform:none;}
 }
 
 /* Ribbon divider */
@@ -273,54 +273,23 @@ button{font-family:inherit;cursor:pointer;}
 .service-card p{font-size:.94rem;margin-bottom:0;}
 
 /* Cardápio */
-.menu-rules{display:grid;gap:18px;grid-template-columns:1fr;max-width:820px;margin:0 auto 54px;}
-@media(min-width:640px){.menu-rules{grid-template-columns:repeat(2,1fr);}}
-.menu-rule{background:var(--surface);border-radius:var(--radius-md);padding:22px 26px;box-shadow:0 12px 28px -20px rgba(64,48,42,.3);display:flex;gap:16px;align-items:flex-start;}
-.menu-rule .icon-wrap{width:48px;height:48px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--champagne),var(--nude));}
-.menu-rule .icon-wrap svg{width:22px;height:22px;stroke:var(--rose-gold-deep);}
-.menu-rule strong{display:block;font-size:.98rem;margin-bottom:2px;}
-.menu-rule span{font-size:.88rem;color:var(--ink-soft);}
-
-.menu-sub{max-width:640px;margin:0 auto 28px;text-align:center;}
-.menu-sub h3{font-size:clamp(1.5rem,3.6vw,2rem);margin-bottom:8px;}
-.menu-sub p{font-size:.98rem;}
-
-.chip-list{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:800px;margin:0 auto;}
-.chip{
-  display:inline-flex;align-items:center;padding:10px 18px;border-radius:100px;
-  background:var(--surface);border:1px solid var(--surface-line);font-size:.86rem;font-weight:500;color:var(--ink);
-  box-shadow:0 8px 18px -16px rgba(64,48,42,.3);
-}
-.menu-note{text-align:center;font-size:.82rem;color:var(--ink-faint);margin:16px 0 0;}
-
-.flavor-card{
-  background:var(--surface);border-radius:var(--radius-md);overflow:hidden;
-  box-shadow:0 14px 34px -22px rgba(64,48,42,.25);
+.menu-poster{
+  display:block;position:relative;max-width:520px;margin:0 auto;
+  border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);
   transition:transform .45s cubic-bezier(.2,.8,.3,1), box-shadow .45s ease;
 }
-.flavor-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lift);}
-.flavor-card .flavor-photo{aspect-ratio:4/3;overflow:hidden;background:var(--champagne);}
-.flavor-card .flavor-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.3,1);}
-.flavor-card:hover .flavor-photo img{transform:scale(1.1);}
-.flavor-card .flavor-body{padding:20px 22px 24px;}
-.flavor-card h3{font-size:1.2rem;margin-bottom:6px;}
-.flavor-card p{font-size:.9rem;margin-bottom:0;}
+.menu-poster:hover{transform:translateY(-8px);box-shadow:var(--shadow-lift);}
+.menu-poster img{width:100%;height:auto;display:block;}
+.menu-poster-hint{
+  position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+  background:rgba(64,48,42,.55);color:#fff;font-size:.78rem;font-weight:500;letter-spacing:.03em;
+  padding:8px 18px;border-radius:100px;backdrop-filter:blur(6px);
+  opacity:0;transition:opacity .3s ease;white-space:nowrap;
+}
+.menu-poster:hover .menu-poster-hint,.menu-poster:focus-visible .menu-poster-hint{opacity:1;}
+@media(max-width:640px){.menu-poster-hint{opacity:1;}}
 
-.feature-grid{display:grid;gap:22px;grid-template-columns:1fr;margin-top:54px;}
-@media(min-width:720px){.feature-grid{grid-template-columns:repeat(2,1fr);}}
-.feature-card{background:var(--surface);border-radius:var(--radius-md);padding:22px 22px 28px;box-shadow:0 14px 32px -22px rgba(64,48,42,.28);transition:box-shadow .45s ease;}
-.feature-card:hover{box-shadow:var(--shadow-lift);}
-.feature-card .feature-photo{border-radius:var(--radius-sm);overflow:hidden;margin-bottom:18px;aspect-ratio:6/5;}
-.feature-card .feature-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.3,1);}
-.feature-card .feature-photo:not(.split):hover img{transform:scale(1.08);}
-.feature-card .feature-photo.split{display:flex;gap:8px;aspect-ratio:auto;}
-.feature-card .feature-photo.split img{flex:1 1 0;min-width:0;width:auto;aspect-ratio:11/8;object-fit:cover;height:auto;border-radius:var(--radius-sm);cursor:pointer;}
-.feature-card .feature-photo.split img:hover{transform:scale(1.1);z-index:1;position:relative;}
-.feature-card h3{font-size:1.2rem;margin-bottom:6px;}
-.feature-card p{font-size:.92rem;margin-bottom:0;}
-.feature-card em{color:var(--rose-gold-deep);font-style:normal;font-weight:500;}
-
-.menu-cta{text-align:center;margin-top:52px;}
+.menu-cta{text-align:center;margin-top:40px;}
 
 /* Gallery */
 .masonry{columns:1;column-gap:18px;}
@@ -731,83 +700,17 @@ button{font-family:inherit;cursor:pointer;}
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">Doçura que encanta, memórias que ficam</p>
-      <h2>Brigadeiros Gourmet de Colher</h2>
-      <p>Servidos em copinhos elegantes, prontos para encantar cada convidado do seu evento.</p>
+      <h2>Nosso Cardápio</h2>
+      <p>Sabores, complementos e tudo que preparamos especialmente para o seu evento.</p>
     </div>
 
-    <div class="menu-rules reveal">
-      <div class="menu-rule">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
-        <div><strong>Até 80 pessoas</strong><span>Escolha 2 sabores de brigadeiro.</span></div>
-      </div>
-      <div class="menu-rule">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3.4"/><circle cx="16" cy="8" r="3.4"/><path d="M2 21c0-3.8 2.8-6 6-6s6 2.2 6 6M12 21c0-3.4 2.6-5.4 6-5.4s6 2 6 5.4"/></svg></div>
-        <div><strong>Acima de 80 pessoas</strong><span>Escolha até 3 sabores de brigadeiro.</span></div>
-      </div>
-    </div>
+    <a class="menu-poster reveal-scale" href="images/cardapio-brigadeiros.jpg" target="_blank" rel="noopener" aria-label="Abrir o cardápio em tamanho maior">
+      <img src="images/cardapio-brigadeiros.jpg" alt="Cardápio Docê Carrinho Gourmet: sabores de brigadeiro, complementos, casquinha e estação de guloseimas" loading="lazy">
+      <span class="menu-poster-hint">Toque para ampliar</span>
+    </a>
 
-    <div class="card-grid" style="margin-bottom:58px">
-      <article class="flavor-card reveal">
-        <div class="flavor-photo"><img src="images/flavor-tradicional.jpg" alt="Brigadeiro tradicional em colher, coberto com granulado de chocolate" loading="lazy"></div>
-        <div class="flavor-body"><h3>Tradicional</h3><p>O clássico que nunca sai de moda.</p></div>
-      </article>
-      <article class="flavor-card reveal">
-        <div class="flavor-photo"><img src="images/flavor-belga.jpg" alt="Brigadeiro de chocolate belga em colher" loading="lazy"></div>
-        <div class="flavor-body"><h3>Belga*</h3><p>Feito com verdadeiro chocolate belga.</p></div>
-      </article>
-      <article class="flavor-card reveal">
-        <div class="flavor-photo"><img src="images/flavor-pacoca.jpg" alt="Brigadeiro sabor paçoca em colher, coberto com paçoca triturada" loading="lazy"></div>
-        <div class="flavor-body"><h3>Paçoca</h3><p>O sabor marcante da paçoca.</p></div>
-      </article>
-      <article class="flavor-card reveal">
-        <div class="flavor-photo"><img src="images/flavor-morango.jpg" alt="Brigadeiro tradicional com morango fresco em colher" loading="lazy"></div>
-        <div class="flavor-body"><h3>Tradicional com Morango</h3><p>Com morangos frescos. Leve, frutado e delicioso!</p></div>
-      </article>
-      <article class="flavor-card reveal">
-        <div class="flavor-photo"><img src="images/flavor-leite-ninho.jpg" alt="Brigadeiro de leite ninho em colher, cremoso e claro" loading="lazy"></div>
-        <div class="flavor-body"><h3>Leite Ninho</h3><p>Delicado e cremoso com todo o sabor do Leite Ninho.</p></div>
-      </article>
-    </div>
-
-    <div class="menu-sub reveal">
-      <p class="eyebrow" style="justify-content:center">Deixe do seu jeito</p>
-      <h3>Personalize seu brigadeiro</h3>
-      <p>Escolha até 3 opções de complemento:</p>
-    </div>
-    <div class="chip-list reveal">
-      <span class="chip">Ovomaltine</span>
-      <span class="chip">Granulado Tradicional</span>
-      <span class="chip">Granulado Belga*</span>
-      <span class="chip">Granulado Premium*</span>
-      <span class="chip">Nutella*</span>
-      <span class="chip">Paçoca</span>
-      <span class="chip">Confeti</span>
-      <span class="chip">Leite Ninho</span>
-      <span class="chip">Castanhas Trituradas</span>
-      <span class="chip">Amendoim Triturado</span>
-      <span class="chip">Coco Ralado</span>
-    </div>
-    <p class="menu-note">*Consulte valores dos complementos adicionais.</p>
-
-    <div class="feature-grid">
-      <div class="feature-card reveal">
-        <div class="feature-photo"><img src="images/casquinha.jpg" alt="Casquinhas com brigadeiro de chocolate, leite ninho e paçoca" loading="lazy"></div>
-        <h3>Servimos também na casquinha!</h3>
-        <p>Crocância por fora e cremosidade por dentro — uma experiência irresistível. <em>Adicional, consulte valores.</em></p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-photo split">
-          <img src="images/balas-fini.jpg" alt="Taça com balas Fini coloridas" loading="lazy">
-          <img src="images/marshmallow.jpg" alt="Taça com marshmallows coloridos" loading="lazy">
-        </div>
-        <h3>Estação de Guloseimas</h3>
-        <p>Balas Fini e marshmallow para uma explosão de sabores que alegram ainda mais o seu evento.</p>
-      </div>
-    </div>
-
-    <div class="menu-cta reveal" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+    <div class="menu-cta reveal">
       <a href="https://wa.me/5537999685338?text=Ol%C3%A1!%20Vi%20o%20card%C3%A1pio%20e%20quero%20montar%20o%20meu%20evento." class="btn btn--primary" target="_blank" rel="noopener">Montar meu cardápio</a>
-      <a href="images/cardapio-brigadeiros.jpg" class="btn btn--ghost" target="_blank" rel="noopener">Ver cardápio completo (imagem)</a>
     </div>
   </div>
 </section>
