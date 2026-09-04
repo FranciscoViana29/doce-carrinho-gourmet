@@ -193,7 +193,6 @@ button{font-family:inherit;cursor:pointer;}
 @media(min-width:960px){.mobile-bar{display:none;}}
 @media(max-width:959px){
   body{padding-bottom:76px;}
-  .wa-float{display:none;}
 }
 
 /* Hero */
@@ -410,6 +409,7 @@ button{font-family:inherit;cursor:pointer;}
 }
 @keyframes pulseRing{0%{transform:scale(1);opacity:.55;}100%{transform:scale(1.7);opacity:0;}}
 @media(prefers-reduced-motion:reduce){.wa-float::before{animation:none;}}
+@media(max-width:959px){.wa-float{display:none;}}
 
 .deco{position:absolute;opacity:.5;pointer-events:none;}
 
