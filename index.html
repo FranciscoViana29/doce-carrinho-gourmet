@@ -258,20 +258,23 @@ button{font-family:inherit;cursor:pointer;}
 .card-grid{display:grid;gap:26px;grid-template-columns:1fr;}
 @media(min-width:640px){.card-grid{grid-template-columns:repeat(2,1fr);}}
 @media(min-width:1024px){.card-grid{grid-template-columns:repeat(3,1fr);}}
+.card-grid--services{max-width:640px;margin:0 auto;gap:28px;}
+@media(min-width:860px){.card-grid--services{grid-template-columns:repeat(3,1fr);max-width:none;gap:30px;}}
 .service-card{
-  position:relative;background:var(--surface);border-radius:var(--radius-md);padding:34px 28px 30px;
+  position:relative;background:var(--surface);border-radius:var(--radius-md);padding:40px 30px 36px;
   box-shadow:0 14px 34px -22px rgba(64,48,42,.25);
   transition:transform .45s cubic-bezier(.2,.8,.3,1), box-shadow .45s ease;
   clip-path:polygon(0% 3%,3% 0%,97% 0%,100% 3%,100% 97%,97% 100%,3% 100%,0% 97%);
+  text-align:center;
 }
 .service-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lift);}
 .service-card .icon-wrap{
-  width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--champagne),var(--nude));margin-bottom:18px;
+  width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--champagne),var(--nude));margin:0 auto 20px;
 }
-.service-card .icon-wrap svg{width:28px;height:28px;stroke:var(--rose-gold-deep);}
-.service-card h3{font-size:1.35rem;margin-bottom:8px;}
-.service-card p{font-size:.94rem;margin-bottom:0;}
+.service-card .icon-wrap svg{width:32px;height:32px;stroke:var(--rose-gold-deep);}
+.service-card h3{font-size:1.4rem;margin-bottom:10px;}
+.service-card p{font-size:.96rem;margin-bottom:0;}
 
 /* Cardápio */
 .menu-poster{
@@ -641,29 +644,11 @@ button{font-family:inherit;cursor:pointer;}
 <section class="section section--alt" id="servicos">
   <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow">O que preparamos para você</p>
+      <p class="eyebrow">Para qual ocasião é o seu evento?</p>
       <h2>Serviços feitos sob medida</h2>
-      <p>Cada evento é único — por isso montamos o carrinho e o cardápio de doces de acordo com a sua celebração.</p>
+      <p>Cada celebração é única — montamos o carrinho, o cardápio e a apresentação de acordo com o seu momento.</p>
     </div>
-    <div class="card-grid">
-
-      <article class="service-card reveal">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11Z"/></svg></div>
-        <h3>Morango do Amor</h3>
-        <p>Morangos selecionados banhados em chocolate nobre e coberturas artesanais — um clássico que nunca sai de moda.</p>
-      </article>
-
-      <article class="service-card reveal">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M8 12a4 4 0 0 1 8 0"/></svg></div>
-        <h3>Brigadeiros Gourmet</h3>
-        <p>Brigadeiros cremosos em sabores exclusivos, enrolados à mão e finalizados com toques delicados.</p>
-      </article>
-
-      <article class="service-card reveal">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M4 12a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4M4 12a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4"/></svg></div>
-        <h3>Doces Finos</h3>
-        <p>Uma seleção refinada de doces finos, com apresentação impecável para encantar todos os paladares.</p>
-      </article>
+    <div class="card-grid card-grid--services">
 
       <article class="service-card reveal">
         <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg></div>
