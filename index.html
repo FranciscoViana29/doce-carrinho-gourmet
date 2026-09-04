@@ -291,11 +291,25 @@ button{font-family:inherit;cursor:pointer;}
 }
 .menu-note{text-align:center;font-size:.82rem;color:var(--ink-faint);margin:16px 0 0;}
 
+.flavor-card{
+  background:var(--surface);border-radius:var(--radius-md);overflow:hidden;
+  box-shadow:0 14px 34px -22px rgba(64,48,42,.25);
+  transition:transform .45s cubic-bezier(.2,.8,.3,1), box-shadow .45s ease;
+}
+.flavor-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lift);}
+.flavor-card .flavor-photo{aspect-ratio:4/3;overflow:hidden;background:var(--champagne);}
+.flavor-card .flavor-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.flavor-card .flavor-body{padding:20px 22px 24px;}
+.flavor-card h3{font-size:1.2rem;margin-bottom:6px;}
+.flavor-card p{font-size:.9rem;margin-bottom:0;}
+
 .feature-grid{display:grid;gap:22px;grid-template-columns:1fr;margin-top:54px;}
 @media(min-width:720px){.feature-grid{grid-template-columns:repeat(2,1fr);}}
-.feature-card{background:var(--surface);border-radius:var(--radius-md);padding:30px 28px;box-shadow:0 14px 32px -22px rgba(64,48,42,.28);}
-.feature-card .icon-wrap{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--champagne),var(--nude));margin-bottom:16px;}
-.feature-card .icon-wrap svg{width:26px;height:26px;stroke:var(--rose-gold-deep);}
+.feature-card{background:var(--surface);border-radius:var(--radius-md);padding:22px 22px 28px;box-shadow:0 14px 32px -22px rgba(64,48,42,.28);}
+.feature-card .feature-photo{border-radius:var(--radius-sm);overflow:hidden;margin-bottom:18px;aspect-ratio:6/5;}
+.feature-card .feature-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.feature-card .feature-photo.split{display:flex;gap:8px;aspect-ratio:auto;}
+.feature-card .feature-photo.split img{flex:1 1 0;min-width:0;width:auto;aspect-ratio:11/8;object-fit:cover;height:auto;border-radius:var(--radius-sm);}
 .feature-card h3{font-size:1.2rem;margin-bottom:6px;}
 .feature-card p{font-size:.92rem;margin-bottom:0;}
 .feature-card em{color:var(--rose-gold-deep);font-style:normal;font-weight:500;}
@@ -734,30 +748,25 @@ button{font-family:inherit;cursor:pointer;}
     </div>
 
     <div class="card-grid" style="margin-bottom:58px">
-      <article class="service-card reveal">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11Z"/></svg></div>
-        <h3>Tradicional</h3>
-        <p>O clássico que nunca sai de moda.</p>
+      <article class="flavor-card reveal">
+        <div class="flavor-photo"><img src="images/flavor-tradicional.jpg" alt="Brigadeiro tradicional em colher, coberto com granulado de chocolate" loading="lazy"></div>
+        <div class="flavor-body"><h3>Tradicional</h3><p>O clássico que nunca sai de moda.</p></div>
       </article>
-      <article class="service-card reveal">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11Z"/></svg></div>
-        <h3>Belga*</h3>
-        <p>Feito com verdadeiro chocolate belga.</p>
+      <article class="flavor-card reveal">
+        <div class="flavor-photo"><img src="images/flavor-belga.jpg" alt="Brigadeiro de chocolate belga em colher" loading="lazy"></div>
+        <div class="flavor-body"><h3>Belga*</h3><p>Feito com verdadeiro chocolate belga.</p></div>
       </article>
-      <article class="service-card reveal">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M8 12a4 4 0 0 1 8 0"/></svg></div>
-        <h3>Paçoca</h3>
-        <p>O sabor marcante da paçoca.</p>
+      <article class="flavor-card reveal">
+        <div class="flavor-photo"><img src="images/flavor-pacoca.jpg" alt="Brigadeiro sabor paçoca em colher, coberto com paçoca triturada" loading="lazy"></div>
+        <div class="flavor-body"><h3>Paçoca</h3><p>O sabor marcante da paçoca.</p></div>
       </article>
-      <article class="service-card reveal">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11Z"/></svg></div>
-        <h3>Tradicional com Morango</h3>
-        <p>Com morangos frescos. Leve, frutado e delicioso!</p>
+      <article class="flavor-card reveal">
+        <div class="flavor-photo"><img src="images/flavor-morango.jpg" alt="Brigadeiro tradicional com morango fresco em colher" loading="lazy"></div>
+        <div class="flavor-body"><h3>Tradicional com Morango</h3><p>Com morangos frescos. Leve, frutado e delicioso!</p></div>
       </article>
-      <article class="service-card reveal">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M8 12a4 4 0 0 1 8 0"/></svg></div>
-        <h3>Leite Ninho</h3>
-        <p>Delicado e cremoso com todo o sabor do Leite Ninho.</p>
+      <article class="flavor-card reveal">
+        <div class="flavor-photo"><img src="images/flavor-leite-ninho.jpg" alt="Brigadeiro de leite ninho em colher, cremoso e claro" loading="lazy"></div>
+        <div class="flavor-body"><h3>Leite Ninho</h3><p>Delicado e cremoso com todo o sabor do Leite Ninho.</p></div>
       </article>
     </div>
 
@@ -783,12 +792,15 @@ button{font-family:inherit;cursor:pointer;}
 
     <div class="feature-grid">
       <div class="feature-card reveal">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10h8l-3.2 10.5a1 1 0 0 1-1.9 0L8 10Z"/><path d="M7 8c0-2.5 2-4.5 5-4.5s5 2 5 4.5"/></svg></div>
+        <div class="feature-photo"><img src="images/casquinha.jpg" alt="Casquinhas com brigadeiro de chocolate, leite ninho e paçoca" loading="lazy"></div>
         <h3>Servimos também na casquinha!</h3>
         <p>Crocância por fora e cremosidade por dentro — uma experiência irresistível. <em>Adicional, consulte valores.</em></p>
       </div>
       <div class="feature-card reveal">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9a4 4 0 1 1 8 0v2a4 4 0 1 1-8 0Z"/><path d="M4 8l2 2-2 2M20 8l-2 2 2 2"/></svg></div>
+        <div class="feature-photo split">
+          <img src="images/balas-fini.jpg" alt="Taça com balas Fini coloridas" loading="lazy">
+          <img src="images/marshmallow.jpg" alt="Taça com marshmallows coloridos" loading="lazy">
+        </div>
         <h3>Estação de Guloseimas</h3>
         <p>Balas Fini e marshmallow para uma explosão de sabores que alegram ainda mais o seu evento.</p>
       </div>
